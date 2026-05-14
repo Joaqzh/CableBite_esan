@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CableBite – Protege tu cable con estilo | Perú</title>
+  <meta name="description"
+    content="CableBite, los mejores protectores de cable kawaii del Perú. Diseños capibara y tiburón. Solo S/ 7 cada uno. Envíos a todo el país.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&family=Pacifico&display=swap');
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --cap: #C2773A;
+      --cap-lt: #F0A055;
+      --cap-dk: #8B4F1F;
+      --sha: #1A6FA8;
+      --sha-lt: #4DB8FF;
+      --sha-dk: #0D3D66;
+      --bg: #0F1117;
+      --card: #1A1D28;
+      --card2: #22263A;
+      --text: #F2F4FF;
+      --muted: #8A8FA8;
+      --accent: #FFD166;
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 17, 23, .85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.6rem;
+      background: linear-gradient(135deg, var(--cap-lt), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: color .3s
+    }
+
+    .nav-links a:hover {
+      color: var(--text)
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--cap), var(--cap-lt));
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(194, 119, 58, .4)
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(194, 119, 58, .18), transparent 70%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(26, 111, 168, .15), transparent 60%)
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 209, 102, .12);
+      border: 1px solid rgba(255, 209, 102, .3);
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 24px
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 30%, var(--cap-lt));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cap), var(--cap-lt));
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s;
+      text-decoration: none;
+      display: inline-block
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(194, 119, 58, .5)
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid rgba(255, 255, 255, .2);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all .25s;
+      text-decoration: none;
+      display: inline-block
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, .05)
+    }
+
+    .hero-animals {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 60px
+    }
+
+    .hero-float {
+      font-size: clamp(5rem, 12vw, 9rem);
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, .4))
+    }
+
+    .hero-float:nth-child(2) {
+      animation-delay: .8s
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-18px)
+      }
+    }
+
+    /* DIVIDER */
+    .wave {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      margin-bottom: -2px
+    }
+
+    .wave svg {
+      display: block;
+      width: 100%
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 80px 24px;
+      background: var(--card)
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 56px
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 12px
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 1.05rem
+    }
+
+    .feats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto
+    }
+
+    .feat-card {
+      background: var(--card2);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform .3s, box-shadow .3s
+    }
+
+    .feat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .3)
+    }
+
+    .feat-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px
+    }
+
+    .feat-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .feat-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.6
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 90px 24px;
+      background: var(--bg)
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 36px;
+      max-width: 860px;
+      margin: 0 auto
+    }
+
+    .product-card {
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      transition: transform .35s, box-shadow .35s;
+      cursor: pointer
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px)
+    }
+
+    /* Capibara card */
+    .card-cap {
+      background: linear-gradient(160deg, #2A1A0A, #3D2210);
+      border: 1px solid rgba(194, 119, 58, .25)
+    }
+
+    .card-cap:hover {
+      box-shadow: 0 24px 60px rgba(194, 119, 58, .3)
+    }
+
+    /* Tiburón card */
+    .card-sha {
+      background: linear-gradient(160deg, #061525, #0D2B45);
+      border: 1px solid rgba(26, 111, 168, .25)
+    }
+
+    .card-sha:hover {
+      box-shadow: 0 24px 60px rgba(26, 111, 168, .35)
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    .badge-cap {
+      background: rgba(194, 119, 58, .25);
+      color: var(--cap-lt);
+      border: 1px solid rgba(194, 119, 58, .4)
+    }
+
+    .badge-sha {
+      background: rgba(26, 111, 168, .25);
+      color: var(--sha-lt);
+      border: 1px solid rgba(26, 111, 168, .4)
+    }
+
+    .product-emoji {
+      font-size: clamp(6rem, 15vw, 9rem);
+      text-align: center;
+      padding: 40px 20px 20px;
+      display: block;
+      filter: drop-shadow(0 12px 30px rgba(0, 0, 0, .5));
+      transition: transform .3s
+    }
+
+    .product-card:hover .product-emoji {
+      transform: scale(1.08) rotate(-4deg)
+    }
+
+    .product-info {
+      padding: 8px 32px 36px
+    }
+
+    .product-info h3 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.9rem;
+      margin-bottom: 8px
+    }
+
+    .cap-name {
+      color: var(--cap-lt)
+    }
+
+    .sha-name {
+      color: var(--sha-lt)
+    }
+
+    .product-info p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 20px
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--accent)
+    }
+
+    .price span {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .btn-buy {
+      padding: 12px 26px;
+      border-radius: 50px;
+      border: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s
+    }
+
+    .btn-cap {
+      background: linear-gradient(135deg, var(--cap-dk), var(--cap));
+      color: #fff
+    }
+
+    .btn-cap:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(194, 119, 58, .5)
+    }
+
+    .btn-sha {
+      background: linear-gradient(135deg, var(--sha-dk), var(--sha));
+      color: #fff
+    }
+
+    .btn-sha:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(26, 111, 168, .5)
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 80px 24px;
+      background: var(--card)
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto
+    }
+
+    .testi-card {
+      background: var(--card2);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform .3s
+    }
+
+    .testi-card:hover {
+      transform: translateY(-4px)
+    }
+
+    .testi-stars {
+      color: #FFD166;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      letter-spacing: 2px
+    }
+
+    .testi-card p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      font-style: italic
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .testi-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .testi-author-info strong {
+      font-size: .95rem;
+      display: block
+    }
+
+    .testi-author-info small {
+      color: var(--muted);
+      font-size: .8rem
+    }
+
+    /* HOW */
+    .how {
+      padding: 80px 24px;
+      background: var(--bg)
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative
+    }
+
+    .step {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .07);
+      border-radius: 20px;
+      transition: transform .3s
+    }
+
+    .step:hover {
+      transform: translateY(-6px)
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cap), var(--cap-lt));
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.6
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 90px 24px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(194, 119, 58, .15), rgba(26, 111, 168, .12));
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      border-bottom: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      margin-bottom: 16px
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto 36px
+    }
+
+    .cta-animals {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: wiggle 2s ease-in-out infinite
+    }
+
+    @keyframes wiggle {
+
+      0%,
+      100% {
+        transform: rotate(-5deg)
+      }
+
+      50% {
+        transform: rotate(5deg)
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      background: var(--card);
+      border-top: 1px solid rgba(255, 255, 255, .06)
+    }
+
+    .footer-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, var(--cap-lt), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: .85rem
+    }
+
+    .footer-flag {
+      font-size: 1rem
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--cap), var(--cap-lt));
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: .95rem;
+      box-shadow: 0 8px 32px rgba(194, 119, 58, .5);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all .4s cubic-bezier(.34, 1.56, .64, 1);
+      z-index: 999
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1
+    }
+
+    /* MOBILE */
+    @media(max-width:640px) {
+      nav {
+        padding: 14px 20px
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .hero-animals {
+        gap: 24px
+      }
+
+      .product-info {
+        padding: 8px 20px 28px
+      }
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">🐾 CableBite</div>
+    <ul class="nav-links">
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#como">¿Cómo comprar?</a></li>
+      <li><a href="#reseñas">Reseñas</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('productos').scrollIntoView({behavior:'smooth'})">¡Quiero
+      uno!</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🇵🇪 Startup Peruana</div>
+      <h1>Protege tu cable con mucho estilo</h1>
+      <p>Los cable bites más adorables del Perú. Elige tu favorito y dale una segunda vida a tu cargador.</p>
+      <div class="hero-btns">
+        <a href="#productos" class="btn-primary">Ver productos</a>
+        <a href="#como" class="btn-secondary">¿Cómo funciona?</a>
+      </div>
+      <div class="hero-animals">
+        <div class="hero-float">🦛</div>
+        <div class="hero-float">🦈</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-title reveal">
+      <h2>¿Por qué elegir CableBite?</h2>
+      <p>Calidad, ternura y precio justo en cada producto</p>
+    </div>
+    <div class="feats-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon">🛡️</div>
+        <h3>Protege tu cable</h3>
+        <p>Evita el doblado y desgaste en el conector de tu cargador favorito.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">💸</div>
+        <h3>Solo S/ 7</h3>
+        <p>El mejor precio del mercado. Calidad premium al alcance de todos.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">🎨</div>
+        <h3>Diseño kawaii</h3>
+        <p>Dos diseños adorables: capibara y tiburón. ¡Colecciónalos todos!</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon">🚀</div>
+        <h3>Envío rápido</h3>
+        <p>Despachamos a todo el Perú. Recibe tu pedido en la puerta de tu casa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="productos">
+    <div class="section-title reveal">
+      <h2>Nuestros productos</h2>
+      <p>Elige tu compañero de carga favorito</p>
+    </div>
+    <div class="products-grid">
+
+      <!-- CAPIBARA -->
+      <div class="product-card card-cap reveal">
+        <div class="product-badge badge-cap">Edición Especial</div>
+        <span class="product-emoji">🦛</span>
+        <div class="product-info">
+          <h3 class="cap-name">Capibara</h3>
+          <p>El roedor más tranquilo del mundo ahora cuida tu cable. Suave, amigable y perfecto para cualquier cargador.
+          </p>
+          <div class="product-price-row">
+            <div class="price">S/ 7 <span>/ unidad</span></div>
+            <button class="btn-buy btn-cap" onclick="addToCart('Capibara')">Pedir ahora 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIBURON -->
+      <div class="product-card card-sha reveal">
+        <div class="product-badge badge-sha">Más vendido</div>
+        <span class="product-emoji">🦈</span>
+        <div class="product-info">
+          <h3 class="sha-name">Tiburón</h3>
+          <p>Feroz protector de cables. El tiburón más bonito del océano llega a tu cargador con todo su estilo.</p>
+          <div class="product-price-row">
+            <div class="price">S/ 7 <span>/ unidad</span></div>
+            <button class="btn-buy btn-sha" onclick="addToCart('Tiburón')">Pedir ahora 🛒</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="how" id="como">
+    <div class="section-title reveal">
+      <h2>¿Cómo pedir?</h2>
+      <p>Simple y rápido en 3 pasos</p>
+    </div>
+    <div class="how-steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>Elige tu favorito</h3>
+        <p>Capibara, tiburón o los dos. Sin límites de amor.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>Escríbenos</h3>
+        <p>Contáctanos por Instagram o WhatsApp con tu pedido.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>Recíbelo en casa</h3>
+        <p>Coordinamos el envío y llega directo a ti. ¡Así de fácil!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="reseñas">
+    <div class="section-title reveal">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <p>Miles de cables protegidos en todo el Perú 🇵🇪</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"¡Me encantó! El capibara es lo más tierno que he visto. Mi cable ya no se dobla y todos me preguntan dónde
+          lo compré."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(194,119,58,.2)">🦛</div>
+          <div class="testi-author-info"><strong>Valentina R.</strong><small>Lima, Perú</small></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"El tiburón es demasiado cool. Lo compré para mi cable USB-C y quedó perfecto. Llegó súper rápido."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(26,111,168,.2)">🦈</div>
+          <div class="testi-author-info"><strong>Rodrigo M.</strong><small>Trujillo, Perú</small></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Compré los dos diseños y no me arrepiento. Son de muy buena calidad y el precio es increíble para lo que
+          ofrece."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(255,209,102,.15)">🐾</div>
+          <div class="testi-author-info"><strong>Camila T.</strong><small>Arequipa, Perú</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-animals">🦛🦈</div>
+    <h2 class="reveal">¿Listo para proteger tu cable?</h2>
+    <p class="reveal">Únete a la familia CableBite. Solo S/ 7 y tu cargador te lo agradecerá.</p>
+    <button class="btn-primary reveal" onclick="openWhatsApp()">Pedir por WhatsApp 💬</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">🐾 CableBite</div>
+    <p>Hecho con ❤️ en Perú <span class="footer-flag">🇵🇪</span></p>
+    <p style="margin-top:8px">© 2025 CableBite – Todos los derechos reservados</p>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    // Toast notification
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3200);
+    }
+
+    // Add to cart
+    function addToCart(product) {
+      showToast('¡' + product + ' agregado! Abriendo WhatsApp… 🛒');
+      setTimeout(() => openWhatsApp(product), 1200);
+    }
+
+    // WhatsApp
+    function openWhatsApp(product) {
+      const text = product
+        ? '¡Hola! Quiero pedir un Cable Bite de ' + product + ' 🐾 ¿Me puedes dar más info?'
+        : '¡Hola! Me interesa comprar un Cable Bite 🐾 ¿Tienen disponibilidad?';
+      const phone = '51999999999'; // Reemplaza con tu número real
+      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(15,17,23,0.97)'
+        : 'rgba(15,17,23,0.85)';
+    });
+  </script>
+</body>
+
+</html>
